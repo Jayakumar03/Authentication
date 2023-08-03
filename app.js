@@ -1,8 +1,11 @@
 require("dotenv").config()
+require("./config/database").connect()
 
 const express = require("express")
+const bcrypt = require("bcryptjs")
 
 const app = express();
+app.use(express.json())
 
 // Importing model \
 const User = require("./model/user")
@@ -25,7 +28,7 @@ app.post("/register", async(req,res) => {
 
 
     // Checking email is present in the existing database
-    const existingUser = await User.findOne({email})
+    const existingUser = await User.findOne({email}) // This is promise
 
 
     // if it is present dispaly the below message
@@ -33,6 +36,26 @@ app.post("/register", async(req,res) => {
         res.status(401).send("User already existed")
 
     }
+
+    const myEncPassword = await bcrypt.hash(password, 10)
+
+    const user = await User.create({ // database opration =>  promise 
+        firstName, 
+        lastname, 
+        email: email.toLowerCase() ,
+        passwaord :myEncPassword
+
+    })
+
+    or
+// promise alternative method 
+    /* User.create({
+        firstName, 
+        lastname, 
+        email: email.toLowerCase() ,
+        passwaord :myEncPassword
+
+    }).then().catch */
 
 
 })
