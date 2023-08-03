@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const express = require("express")
 
 const app = express();
@@ -5,7 +7,7 @@ const app = express();
 
 
 app.get("/", (req, res) => {
-    res.send("Hello form port : 3000")
+    res.send("Hello form server")
 
 
 
