@@ -49,12 +49,11 @@ usage:
     ```
   login: >
     Send a POST request to /login with the user's email and password in the request body (JSON format):
-    ```json
+    -json
     {
       "email": "john.doe@example.com",
       "password": "your_password_here"
     }
-    ```
   dashboard: >
     Send a GET request to /dashboard with the JWT token obtained after successful login. Make sure to include the token in the request cookies.
   home_route: Access the home route by sending a GET request to /.
