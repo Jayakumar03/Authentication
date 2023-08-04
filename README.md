@@ -24,40 +24,43 @@ dependencies:
 setup:
   steps:
     - name: Clone the repository
-    -command: git clone <https://github.com/Jayakumar03/Authentication>
-    name: Install dependencies
-    -command: npm install
-      name: Set up MongoDB database
-      -description: 
-        Create a MongoDB database and provide the connection URI in a .env file. Example .env:
-      -content: |
+      command: git clone <repository_url>
+    - name: Install dependencies
+      command: npm install
+    - name: Set up MongoDB database
+      description: Create a MongoDB database and provide the connection URI in a .env file. Example .env:
+      content: |
         MONGODB_URI=mongodb://localhost:27017/authentication_app
     - name: Start the server
       command: npm start
   default_port: 3000
 
 usage:
-  register:
+  register: >
     Send a POST request to /register with the user details in the request body (JSON format):
-    json
+    
     {
       "firstname": "John",
       "lastname": "Doe",
       "email": "john.doe@example.com",
       "password": "your_password_here"
     }
-    
-  login: 
+   
+
+  login: >
     Send a POST request to /login with the user's email and password in the request body (JSON format):
-    -json
+    
     {
       "email": "john.doe@example.com",
       "password": "your_password_here"
+    
     }
 
   dashboard: 
     Send a GET request to /dashboard with the JWT token obtained after successful login. Make sure to include the token in the request cookies.
-  home_route: Access the home route by sending a GET request to /.
+
+  home_route: 
+    Access the home route by sending a GET request to /.
 
 notes: |
   - This app is for learning purposes and does not have a frontend. All responses are in JSON format.
