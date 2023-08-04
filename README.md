@@ -25,15 +25,15 @@ setup:
   steps:
     - name: Clone the repository
     -command: git clone <https://github.com/Jayakumar03/Authentication>
-    - name: Install dependencies
+    name: Install dependencies
     -command: npm install
-    - name: Set up MongoDB database
-      -description: >
+      name: Set up MongoDB database
+      -description: 
         Create a MongoDB database and provide the connection URI in a .env file. Example .env:
       -content: |
         MONGODB_URI=mongodb://localhost:27017/authentication_app
     - name: Start the server
-    -command: npm start
+      command: npm start
   default_port: 3000
 
 usage:
@@ -54,7 +54,7 @@ usage:
       "email": "john.doe@example.com",
       "password": "your_password_here"
     }
-    
+
   dashboard: 
     Send a GET request to /dashboard with the JWT token obtained after successful login. Make sure to include the token in the request cookies.
   home_route: Access the home route by sending a GET request to /.
