@@ -24,20 +24,20 @@ dependencies:
 setup:
   steps:
     - name: Clone the repository
-      command: git clone <repository_url>
+    -command: git clone <https://github.com/Jayakumar03/Authentication>
     - name: Install dependencies
-      command: npm install
+    -command: npm install
     - name: Set up MongoDB database
-      description: >
+      -description: >
         Create a MongoDB database and provide the connection URI in a .env file. Example .env:
-      content: |
+      -content: |
         MONGODB_URI=mongodb://localhost:27017/authentication_app
     - name: Start the server
-      command: npm start
+    -command: npm start
   default_port: 3000
 
 usage:
-  register: >
+  register:
     Send a POST request to /register with the user details in the request body (JSON format):
     ```json
     {
