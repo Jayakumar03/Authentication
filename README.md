@@ -1,7 +1,7 @@
 # Authentication App README
 
 overview:
-  description: 
+  description: >
     This is a simple authentication app built using Node.js and MongoDB. It provides basic user registration, login, and dashboard functionality. The app responds with JSON data and does not have a frontend interface.
 
 features:
@@ -24,19 +24,23 @@ dependencies:
 setup:
   steps:
     - name: Clone the repository
-      command: git clone <repository_url>
+      command: git clone <https://github.com/Jayakumar03/Authentication>
+
     - name: Install dependencies
       command: npm install
+
     - name: Set up MongoDB database
       description: Create a MongoDB database and provide the connection URI in a .env file. Example .env:
       content: |
-        MONGODB_URI=mongodb://localhost:27017/authentication_app
+        MONGODB_URI=mongodb://localhost:27017
+
     - name: Start the server
       command: npm start
+
   default_port: 3000
 
 usage:
-  register: 
+  register: >
     Send a POST request to /register with the user details in the request body (JSON format):
     ```json
     {
@@ -47,7 +51,7 @@ usage:
     }
     ```
 
-  login: 
+  login: >
     Send a POST request to /login with the user's email and password in the request body (JSON format):
     ```json
     {
@@ -56,13 +60,12 @@ usage:
     }
     ```
 
-  dashboard: 
+  dashboard: >
     Send a GET request to /dashboard with the JWT token obtained after successful login. Make sure to include the token in the request cookies.
 
-  home_route: 
+  home_route: >
     Access the home route by sending a GET request to /.
 
 notes: |
   - This app is for learning purposes and does not have a frontend. All responses are in JSON format.
   - Ensure you have MongoDB installed and running before starting the app.
-
