@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json())
 app.use(cookieParser())
 
-// Importing model \
+// Imported files \
 const User = require("./model/user")
 const auth = require("./middleware/auth")
 
